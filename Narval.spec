@@ -7,8 +7,6 @@ Version:	1.1
 Release:	1
 License:	GPL
 Group:		Applications
-Group(de):	Applikationen
-Group(pl):	Aplikacje
 Source0:	ftp://ftp.logilab.org/pub/narval/%{name}-%{version}.tar.gz
 Source1:	horn.desktop
 Patch0:		%{name}-apps_dir.patch
