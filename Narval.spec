@@ -4,7 +4,7 @@ Summary:	Python XMLTools
 Summary(pl):	Narzêdzia XML dla Pythona
 Name:		Narval
 Version:	1.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications
 Source0:	ftp://ftp.logilab.org/pub/narval/%{name}-%{version}.tar.gz
@@ -17,7 +17,7 @@ Requires:	python-PyXML
 Requires:	python-4Suite
 Requires:	python-xmlrpc
 Requires:	python-xmltools
-Requires:	python-pygtk
+Requires:	python-pygtk-gtk
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
