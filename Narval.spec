@@ -56,6 +56,10 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/narval/apps,%{_applnkdir}/Applications}
 python setup.py install --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 
+# these files seem missing after installation, so install them here
+install share/dtd/* $RPM_BUILD_ROOT%{_datadir}/narval/dtd/
+install share/transforms/Email/* $RPM_BUILD_ROOT%{_datadir}/narval/transforms/Email/
+
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Applications
 
 gzip -9fn PKG-INFO README doc/ANNOUNCE* doc/CHANGELOG doc/CONTRIBUTORS doc/README.UNIX
