@@ -1,0 +1,11 @@
+diff -durN Narval-1.1.orig/narval/gui/HornGuiController.py Narval-1.1/narval/gui/HornGuiController.py
+--- Narval-1.1.orig/narval/gui/HornGuiController.py	Mon Oct 15 10:39:09 2001
++++ Narval-1.1/narval/gui/HornGuiController.py	Sat Oct 20 11:55:49 2001
+@@ -320,6 +320,7 @@
+    
+     def _install_dlg(self):
+         fs = GtkFileSelection(unicode_to_gtk(_("Select package to install")))
++	fs.set_filename("/usr/share/narval/apps/")
+         fs.set_position(WIN_POS_CENTER)
+         fs.connect_object("destroy",lambda x:x.destroy(),fs)
+         fs.ok_button.connect_object("clicked",self._install,fs)
