@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Horn
+Comment=Narval graphical user interface
+Comment[pl]=Graficzny interfejs użytkownika do Naraval'a
+Exec=horn
+Terminal=0
+Type=Application
+# vi: encoding=utf-8
