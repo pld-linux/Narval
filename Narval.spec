@@ -1,16 +1,18 @@
 %define python_sitepkgsdir %(echo `python -c "import sys; print (sys.prefix + '/lib/python' + sys.version[:3] + '/site-packages/')"`)
 
 Summary:	Python XMLTools
+Summary(pl):	Narzêdzia XML dla Pythona
 Name:		Narval
 Version:	1.1
 Release:	1
-Source0:	ftp://ftp.logilab.org/pub/narval/%{name}-%{version}.tar.gz
-Source1:	horn.desktop
-Patch0:		%{name}-apps_dir.patch
 License:	GPL
 Group:		Applications
 Group(de):	Applikationen
 Group(pl):	Aplikacje
+Source0:	ftp://ftp.logilab.org/pub/narval/%{name}-%{version}.tar.gz
+Source1:	horn.desktop
+Patch0:		%{name}-apps_dir.patch
+URL:		http://www.logilab.org/narval/index.html
 BuildRequires:	python >= 2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Requires:	python-PyXML
@@ -18,7 +20,6 @@ Requires:	python-4Suite
 Requires:	python-xmlrpc
 Requires:	python-xmltools
 Requires:	python-pygtk
-Url:		http://www.logilab.org/narval/index.html
 
 %description
 NARVAL is the first software agent available as free software (Gnu
@@ -63,7 +64,6 @@ install share/transforms/Email/* $RPM_BUILD_ROOT%{_datadir}/narval/transforms/Em
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Applications
 
 gzip -9fn PKG-INFO README doc/ANNOUNCE* doc/CHANGELOG doc/CONTRIBUTORS doc/README.UNIX
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
