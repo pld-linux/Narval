@@ -4,7 +4,7 @@ Summary:	Python XMLTools
 Name:		Narval
 Version:	1.1
 Release:	1
-Source0:	http://www.logilab.org/ftp/pub/narval/Narval-1.1.tar.gz
+Source0:	ftp://ftp.logilab.org/pub/narval/Narval-1.1.tar.gz
 License:	GPL
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
