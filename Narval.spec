@@ -61,14 +61,13 @@ install share/transforms/Email/* $RPM_BUILD_ROOT%{_datadir}/narval/transforms/Em
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Applications
 
-gzip -9fn PKG-INFO README doc/ANNOUNCE* doc/CHANGELOG doc/CONTRIBUTORS doc/README.UNIX
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz doc/*.gz doc/*.xml doc/howtos doc/manuals
+%doc PKG-INFO README doc/ANNOUNCE* doc/CHANGELOG doc/CONTRIBUTORS doc/README.UNIX
+%doc doc/*.xml doc/howtos doc/manuals
 %attr(755,root,root) %{_bindir}/*
 %{python_sitepkgsdir}/narval
 %{_datadir}/narval
