@@ -13,12 +13,12 @@ Source1:	horn.desktop
 Patch0:		%{name}-apps_dir.patch
 URL:		http://www.logilab.org/narval/index.html
 BuildRequires:	python >= 2.0
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Requires:	python-PyXML
 Requires:	python-4Suite
 Requires:	python-xmlrpc
 Requires:	python-xmltools
 Requires:	python-pygtk
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 NARVAL is the first software agent available as free software (Gnu
@@ -35,7 +35,6 @@ your daily work in the information world.
 %description -l pl
 NARVAL to pierwszy programowy agent dostêpny jako Wolne
 Oprogramowanie.
-
 Narval to skrót od "Network Assistant Reasoning with a Validating
 Agent Language".
 
@@ -54,7 +53,10 @@ CFLAGS="%{rpmcflags}" python setup.py build
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/narval/apps,%{_applnkdir}/Applications}
-python setup.py install --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+
+python setup.py install \
+	--root=$RPM_BUILD_ROOT \
+	--record=INSTALLED_FILES
 
 # these files seem missing after installation, so install them here
 install share/dtd/* $RPM_BUILD_ROOT%{_datadir}/narval/dtd/
