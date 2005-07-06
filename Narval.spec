@@ -13,11 +13,11 @@ Source1:	horn.desktop
 Patch0:		%{name}-apps_dir.patch
 URL:		http://www.logilab.org/narval/
 BuildRequires:	python >= 2.0
-Requires:	python-PyXML
 Requires:	python-4Suite
-Requires:	python-xmlrpc
-Requires:	python-xmltools
+Requires:	python-PyXML
+Requires:	python-modules
 Requires:	python-pygtk-gtk
+Requires:	python-xmltools
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -35,6 +35,7 @@ your daily work in the information world.
 %description -l pl
 NARVAL to pierwszy programowy agent dostêpny jako Wolne
 Oprogramowanie.
+
 Narval to skrót od "Network Assistant Reasoning with a Validating
 Agent Language".
 
