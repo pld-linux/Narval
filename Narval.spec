@@ -1,14 +1,13 @@
-%define python_sitepkgsdir %(echo `python -c "import sys; print (sys.prefix + '/lib/python' + sys.version[:3] + '/site-packages/')"`)
-
 Summary:	Python XMLTools
 Summary(pl):	Narzêdzia XML dla Pythona
 Name:		Narval
-Version:	1.1
-Release:	2
+%define		_subname	narval
+Version:	2.0.2
+Release:	0.1
 License:	GPL
 Group:		Applications
-Source0:	ftp://ftp.logilab.org/pub/narval/%{name}-%{version}.tar.gz
-# Source0-md5:	6bf5fb6e2242fafbbf8c7cd65fb89f38
+Source0:	ftp://ftp.logilab.org/pub/narval/%{_subname}-%{version}.tar.gz
+# Source0-md5:	b996c2eb0eaf20a0569b311fecabd1e3
 Source1:	horn.desktop
 Patch0:		%{name}-apps_dir.patch
 URL:		http://www.logilab.org/narval/
@@ -45,35 +44,45 @@ asystent to towarzysz, który pomo¿e ci w codziennej pracy w ¶wiecie
 informacji.
 
 %prep
-%setup -q
-%patch -p1
+%setup -q -n %{_subname}-%{version}
+#/%patch -p1
 
 %build
 CFLAGS="%{rpmcflags}" python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/narval/apps,%{_applnkdir}/Applications}
+install -d $RPM_BUILD_ROOT{%{_datadir}/narval/apps,%{_desktopdir},%{py_sitedir}/narval/}
 
 python setup.py install \
 	--root=$RPM_BUILD_ROOT \
 	--record=INSTALLED_FILES
 
 # these files seem missing after installation, so install them here
+cp -r   share/data/* $RPM_BUILD_ROOT%{_datadir}/narval/data/
 install share/dtd/* $RPM_BUILD_ROOT%{_datadir}/narval/dtd/
-install share/transforms/Email/* $RPM_BUILD_ROOT%{_datadir}/narval/transforms/Email/
+install share/recipes/* $RPM_BUILD_ROOT%{_datadir}/narval/recipes/
+cp -r   share/tests/* $RPM_BUILD_ROOT%{_datadir}/narval/tests
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Applications
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+
+# move files to proper directories
+cp -r $RPM_BUILD_ROOT%{_datadir}/python2.4/ $RPM_BUILD_ROOT%{_libdir}
+cp -r $RPM_BUILD_ROOT/usr/etc/ $RPM_BUILD_ROOT
+rm -frd $RPM_BUILD_ROOT/usr/etc/ $RPM_BUILD_ROOT%{_datadir}/python2.4/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc PKG-INFO README doc/ANNOUNCE* doc/CHANGELOG doc/CONTRIBUTORS doc/README.UNIX
-%doc doc/*.xml doc/howtos doc/manuals
+%doc DEPENDS RECOMMENDS PKG-INFO README SUGGESTS
+%doc doc/*.xml doc/technical_manual/*.xml doc/programmer_handbook/*.xml
+%doc doc/*.pdf doc/technical_manual/*.pdf doc/programmer_handbook/*.pdf 
 %attr(755,root,root) %{_bindir}/*
-%{python_sitepkgsdir}/narval
+#%{python_sitepkgsdir}/narval
+%dir %{py_sitedir}/narval
+%{py_sitedir}/narval/*
 %{_datadir}/narval
-%{_applnkdir}/Applications/*
+%{_desktopdir}/*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/*
