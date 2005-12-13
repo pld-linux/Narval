@@ -78,11 +78,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc DEPENDS RECOMMENDS PKG-INFO README SUGGESTS
 %doc doc/*.xml doc/technical_manual/*.xml doc/programmer_handbook/*.xml
-%doc doc/*.pdf doc/technical_manual/*.pdf doc/programmer_handbook/*.pdf 
+%doc doc/*.pdf doc/technical_manual/*.pdf doc/programmer_handbook/*.pdf
 %attr(755,root,root) %{_bindir}/*
 #%{python_sitepkgsdir}/narval
 %dir %{py_sitedir}/narval
 %{py_sitedir}/narval/*
 %{_datadir}/narval
 %{_desktopdir}/*
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
