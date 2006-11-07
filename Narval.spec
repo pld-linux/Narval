@@ -84,5 +84,5 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py_sitedir}/narval
 %{py_sitedir}/narval/*
 %{_datadir}/narval
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
