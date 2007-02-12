@@ -1,5 +1,5 @@
 Summary:	Python XMLTools
-Summary(pl.UTF-8):   Narzędzia XML dla Pythona
+Summary(pl.UTF-8):	Narzędzia XML dla Pythona
 Name:		Narval
 %define		_subname	narval
 Version:	2.0.2
