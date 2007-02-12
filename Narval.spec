@@ -1,5 +1,5 @@
 Summary:	Python XMLTools
-Summary(pl):	Narzêdzia XML dla Pythona
+Summary(pl.UTF-8):   NarzÄ™dzia XML dla Pythona
 Name:		Narval
 %define		_subname	narval
 Version:	2.0.2
@@ -31,16 +31,16 @@ the setting up of intelligent personal assistants (IPAs). An
 Intelligent Personal Assitant is a companion that will help you in
 your daily work in the information world.
 
-%description -l pl
-NARVAL to pierwszy programowy agent dostêpny jako Wolne
+%description -l pl.UTF-8
+NARVAL to pierwszy programowy agent dostÄ™pny jako Wolne
 Oprogramowanie.
 
-Narval to skrót od "Network Assistant Reasoning with a Validating
+Narval to skrÃ³t od "Network Assistant Reasoning with a Validating
 Agent Language".
 
-Narval to szkielet (jêzyk + interpreter + GUI/IDE) dedykowany
-tworzeniu inteligentnych osobistych asystentów. Inteligentny osobisty
-asystent to towarzysz, który pomo¿e ci w codziennej pracy w ¶wiecie
+Narval to szkielet (jÄ™zyk + interpreter + GUI/IDE) dedykowany
+tworzeniu inteligentnych osobistych asystentÃ³w. Inteligentny osobisty
+asystent to towarzysz, ktÃ³ry pomoÅ¼e ci w codziennej pracy w Å›wiecie
 informacji.
 
 %prep
