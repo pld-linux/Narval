@@ -5,5 +5,4 @@ Comment[pl]=Graficzny interfejs użytkownika do Naraval'a
 Exec=horn
 Terminal=false
 Type=Application
-Encoding=UTF-8
 # vi: encoding=utf-8
