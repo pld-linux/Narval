@@ -48,14 +48,13 @@ informacji.
 #/%patch -p1
 
 %build
-CFLAGS="%{rpmcflags}" python setup.py build
+CFLAGS="%{rpmcflags}" %py_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/narval/apps,%{_desktopdir},%{py_sitedir}/narval/}
 
-python setup.py install \
-	--root=$RPM_BUILD_ROOT \
+%py_install \
 	--record=INSTALLED_FILES
 
 # these files seem missing after installation, so install them here
