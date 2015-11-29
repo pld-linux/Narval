@@ -11,6 +11,7 @@ Source0:	ftp://ftp.logilab.org/pub/narval/%{_subname}-%{version}.tar.gz
 Source1:	horn.desktop
 Patch0:		%{name}-apps_dir.patch
 URL:		http://www.logilab.org/narval/
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRequires:	python >= 2.0
 Requires:	python-4Suite
 Requires:	python-PyXML
