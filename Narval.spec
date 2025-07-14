@@ -46,7 +46,7 @@ informacji.
 
 %prep
 %setup -q -n %{_subname}-%{version}
-#/%patch -p1
+#/%%patch -p1
 
 %build
 CFLAGS="%{rpmcflags}" %py_build
